@@ -9,7 +9,7 @@ int main()
         int a, b;
         printf("Enter the value of a and b:");
         scanf("%d %d",&a, &b);
-        int ans = a+b;
+        int ans = a%b;
         printf("\nAns: %d\n",ans);
     }
     return 0;
