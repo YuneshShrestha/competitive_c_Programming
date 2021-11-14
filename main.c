@@ -1,16 +1,15 @@
 #include<stdio.h>
 int main()
 {
-    int T;
-    printf("Number of test number cases:");
-    scanf("%d",&T);
-    while(T--)
+    float x,y,ans;
+    scanf("%f %f", &x, &y);
+    if ((int)x%5==0 && y-x-0.5>0.0)
     {
-        int a, b;
-        printf("Enter the value of a and b:");
-        scanf("%d %d",&a, &b);
-        int ans = a%b;
-        printf("\nAns: %d\n",ans);
+         ans = y-x-0.5;
     }
+    else{
+         ans = y;
+    }
+    printf("%f",ans);
     return 0;
 }
