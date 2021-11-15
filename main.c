@@ -1,15 +1,17 @@
-#include<stdio.h>
-int main()
-{
-    float x,y,ans;
-    scanf("%f %f", &x, &y);
-    if ((int)x%5==0 && y-x-0.5>0.0)
-    {
-         ans = y-x-0.5;
-    }
-    else{
-         ans = y;
-    }
-    printf("%f",ans);
-    return 0;
+#include <stdio.h>
+
+int main(void) {
+	int a,b, ans=0;
+	scanf("%d %d", &a, &b);
+	for (int i = 1; i <= a; i++)
+	{
+		int n;
+		scanf("%d",&n);
+		if(n%b==0)
+		{
+			ans++;
+		}
+	}
+	printf("%d", ans);
+	
 }
