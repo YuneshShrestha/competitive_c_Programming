@@ -1,17 +1,17 @@
 #include <stdio.h>
 
 int main(void) {
-	int a,b, ans=0;
-	scanf("%d %d", &a, &b);
-	for (int i = 1; i <= a; i++)
-	{
-		int n;
+	int t,n;
+	scanf("%d", &t);
+	while(t--){
+		int sum = 0;
 		scanf("%d",&n);
-		if(n%b==0)
+		while(n)
 		{
-			ans++;
+			sum += n%10;
+			n /= 10;
 		}
+		printf("\n%d\n",sum);
 	}
-	printf("%d", ans);
 	
 }
