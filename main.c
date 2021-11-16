@@ -1,30 +1,62 @@
 #include<stdio.h>
-
-int main(void)
+int main()
 {
 	int t;
 	scanf("%d",&t);
 	while (t--)
 	{
-		int m,x,d,a1,a2;
-		scanf("%d",&x);
-		scanf("%d",&m);
-		scanf("%d",&d);
-		a1=m*x;
-		a2=d+x;
-		if(a1 != a2)
+		int k;
+		scanf("%d",&k);
+		char ch[k][100];
+		int f=0;
+		for(int i = 0 ; i<k ; i++)
 		{
-			if(a1<a2)
+			scanf("%s",ch[i]);
+		}
+		for (int i = 0; i < k; i++)
+		{
+
+			if (ch[i][0]>='a' && ch[i][0]<='m')
 			{
-				printf("\n%d\n",a1);
+				for (int j = 0; ch[i][j] != '\0'; j++)
+				{
+					if (!(ch[i][j]>='a' && ch[i][j]<='m'))
+					{
+						f =1;
+						break;
+					}
+				}
 			}
-			else{
-				printf("\n%d\n",a2);
+			else if(ch[i][0]>='N' && ch[i][0]<='Z')
+			{
+				for (int j = 0; ch[i][j] != '\0'; j++)
+				{
+					if (!(ch[i][j]>='N' && ch[i][j]<='Z'))
+					{
+						f =1;
+						break;
+					}
+				}
 			}
+			else
+			{
+				f = 1;
+			}
+			
+			
 		}
-		else{
-			printf("\n%d\n",a1);
+		if (f)
+		{
+			printf("No");
 		}
+		else
+		{
+			printf("Yes");
+		}
+		
+		
+		
+
 	}
 	
 	return 0;
