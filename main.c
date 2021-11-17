@@ -1,26 +1,16 @@
 #include<stdio.h>
-int main()
+int main(void)
 {
-	int a[10] = {0}, num, rem, i;
-	printf("Enter the number:\n");
-	scanf("%d",&num);
-	while (num)
+	int n,l;
+	scanf("%d",&n);
+	for (int i = 1; i <= 10; i++)
 	{
-		rem = num % 10;
-		a[rem]++;
-		num /= 10;
-	}
-	printf("\n");
-	for (int i = 0; i < 10; i++)
-	{
-		if (a[i] != 0)
+		if(n%i==0)
 		{
-			printf("Number = %d , Count = %d \n",a[i],i);
+			l =i;
 		}
-		
 	}
-	
-
+	printf("%d",l);
 	
 	return 0;
 }
