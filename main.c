@@ -2,45 +2,25 @@
 int main()
 {
 	int t;
-	scanf("%d",&t);
+	scanf("%d", &t);
 	while (t--)
 	{
-		int n, q=2, len=1, arr[10000]={0},rem, num=0, x;
-		arr[0] = 1;
-		scanf("%d",&n);
-
-		while (q!=n+1)
+		int a,b,p,q;
+		scanf("%d %d %d %d", &a, &b, &p, &q);
+		if(a==p && b==q)
 		{
-			x=0;
-			while (x<len)
-			{
-				arr[x] = arr[x] * q;
-				arr[x] += num;
-				num = arr[x]/ 10;
-				arr[x] = arr[x] % 10;
-				x++;
-			}
-			while (num!=0)
-			{
-				arr[len] = num % 10;
-				num /= 10;
-				len++;
-			}
-			
-			q++;
-			
+			printf("0\n");
 		}
-		len--;
-		while (len>=0)
+		else if((a+b)%2==0 != (p+q)%2==0)
 		{
-			printf("%d",arr[len]);
-			len--;
-
+			printf("1\n");
 		}
-		printf("\n");
+		else
+		{
+			printf("2\n");
+		}
+		
 	}
-	
-	
 	
 	return 0;
 }
