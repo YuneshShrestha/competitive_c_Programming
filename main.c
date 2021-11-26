@@ -6,27 +6,33 @@ int main()
 	while (t--)
 	{
 		int n;
+		char a[1000000], b[1000000];
 		scanf("%d",&n);
-		int a[n], min ,max;
-		for (int i = 0; i < n; i++)
+		int count=0, flag=0;
+		scanf("%s",a);
+		scanf("%s",b);
+		for (int i = n-1; i >=0 ; i--)
 		{
-			scanf("%d",&a[i]);
-		}
-		min=max=a[0];
-		for (int i = 0; i < n; i++)
-		{
-			if(a[i]>max)
+			if (a[i]<b[i])
 			{
-				max = a[i];
+				flag = 1;
+				count++;
 			}
-			if(a[i]<min)
+			if (a[i] == b[i])
 			{
-				min = a[i];
+				if (flag)
+				{
+					count++;
+				}
+				
+			}
+			if (a[i]>b[i])
+			{
+				flag=0;
 			}
 		}
-		printf("%d", max-min);
+		printf("%d\n",count);
 	}
-	
 	
 	return 0;
 }
