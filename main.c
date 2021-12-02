@@ -1,37 +1,46 @@
 #include<stdio.h>
+int clean()
+{
+	int n,k,first;
+	scanf("%d %d",&n,&k);
+	int a[100000];
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	
+	for (int j = 1; j <= k; j++)
+	{
+		int count = 0;
+		// first digit
+		for (int f = 0; f < n; f++)
+		{
+			if (a[f]!=j)
+			{
+				first = a[f];
+				break;				
+			}
+		}	
+		
+		for (int i = 1; i < n; i++)
+		{
+		   if (first!=a[i] && j!=a[i])
+			{
+				count++;
+				first=a[i];
+			}
+		}
+		printf("%d\t",count);
+	}
+	printf("\n");
+}
 int main()
 {
 	int t;
 	scanf("%d",&t);
 	while (t--)
 	{
-		int n;
-		char a[1000000], b[1000000];
-		scanf("%d",&n);
-		int count=0, flag=0;
-		scanf("%s",a);
-		scanf("%s",b);
-		for (int i = n-1; i >=0 ; i--)
-		{
-			if (a[i]<b[i])
-			{
-				flag = 1;
-				count++;
-			}
-			if (a[i] == b[i])
-			{
-				if (flag)
-				{
-					count++;
-				}
-				
-			}
-			if (a[i]>b[i])
-			{
-				flag=0;
-			}
-		}
-		printf("%d\n",count);
+		clean();
 	}
 	
 	return 0;
