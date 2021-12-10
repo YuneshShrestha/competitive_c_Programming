@@ -1,47 +1,34 @@
 #include<stdio.h>
-int clean()
+long long int b[1000000] = {0};
+long long int coins(long long int n)
 {
-	int n,k,first;
-	scanf("%d %d",&n,&k);
-	int a[100000];
-	for (int i = 0; i < n; i++)
+	long long int ans = 0;
+	if (n<12)
 	{
-		scanf("%d",&a[i]);
+		return n;
 	}
+	if (n<1000000 && b[n] != 0)
+	{
+		return b[n];
+	}
+	ans = coins(n/2) + coins(n/3) + coins(n/4);
+	if (n<1000000)
+	{
+		b[n] = ans;
+	}
+	return ans;
 	
-	for (int j = 1; j <= k; j++)
-	{
-		int count = 0;
-		// first digit
-		for (int f = 0; f < n; f++)
-		{
-			if (a[f]!=j)
-			{
-				first = a[f];
-				break;				
-			}
-		}	
-		
-		for (int i = 1; i < n; i++)
-		{
-		   if (first!=a[i] && j!=a[i])
-			{
-				count++;
-				first=a[i];
-			}
-		}
-		printf("%d\t",count);
-	}
-	printf("\n");
 }
 int main()
 {
-	int t;
-	scanf("%d",&t);
-	while (t--)
+	long long int n;
+	while (scanf("%lld",&n) != EOF)
 	{
-		clean();
+		printf("%lld",coins(n));
+		printf("\n");
 	}
 	
+	
+
 	return 0;
 }
