@@ -1,34 +1,33 @@
 #include<stdio.h>
-long long int b[1000000] = {0};
-long long int coins(long long int n)
-{
-	long long int ans = 0;
-	if (n<12)
-	{
-		return n;
-	}
-	if (n<1000000 && b[n] != 0)
-	{
-		return b[n];
-	}
-	ans = coins(n/2) + coins(n/3) + coins(n/4);
-	if (n<1000000)
-	{
-		b[n] = ans;
-	}
-	return ans;
-	
+#include <stdlib.h>
+int cmpfunc (const void * a, const void * b) {
+   return ( *(int*)b - *(int*)a );
 }
 int main()
 {
-	long long int n;
-	while (scanf("%lld",&n) != EOF)
+	int k, n, ans =0;
+	int s[1500];
+	scanf("%d %d",&k, &n);
+	for (int i = 0; i < k; i++)
 	{
-		printf("%lld",coins(n));
-		printf("\n");
+		scanf("%d",&s[i]);
 	}
-	
-	
+	qsort(s, k, sizeof(int), cmpfunc);
 
+	for (int i = 0; i < n; i++)
+	{
+		ans++;
+
+		for (int j = i; j < k; j++)
+		{
+			if(s[i] == s[j])
+			{
+				ans++;
+			}
+		}
+		i += ans;
+	}
+	printf("%d", ans);
+	
 	return 0;
 }
