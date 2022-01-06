@@ -9,7 +9,6 @@ int main()
         scanf("%d",&a[i]);
         sum += a[i];
     }
-    printf("Sum = %d\n",sum);
     dima[0] = 1;
     while (sum >= ans)
     {
@@ -19,25 +18,27 @@ int main()
        
     }
     ans=0;
-    // printf("Count = %d\n",count);
-    // for (int i = 0; i <= count; i++)
-    // {
-    //     printf("%d",dima[i]);
-    // }
+    // printf("%d",sum + fingers);
     while (fingers<=5)
     {
        ans = sum + fingers;
+    //    printf("%d",ans);
        p_fingers = fingers;
-       for (int i = 0; i < count; i++)
+       for (int i = 0; i <= count; i++)
         {
             if(ans == dima[i]){
                 fingers++;
                 break;
-            }       
+            }     
+            
         }
+        // printf("%d %d\n", p_fingers, fingers);
         if (p_fingers == fingers)
         {
            break;
+        }
+        else{
+            continue;
         }
     }
     printf("%d",fingers);
